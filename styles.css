@@ -1,0 +1,31 @@
+/*CSS Initial Resets*/
+    html {
+        box-sizing: border-box;
+    }
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+/*Basic Body Config*/
+    body {    
+        /*the default body has margin and a small viewport
+        compared to the html size, so we do the above:*/
+        margin: 0px;
+        height: 100vh;
+        /**/
+        display: flex;
+        flex-direction: column;
+    }
+
+/*Main Area*/
+    .mainArea {
+        height: 90%;
+    }
+
+/*Calculator*/
+    
+
+/*Footer*/
+    footer{
+        margin-top: auto;
+    }
