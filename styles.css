@@ -19,11 +19,34 @@
 
 /*Main Area*/
     .mainArea {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
         height: 90%;
+        padding-top: 32px;
     }
 
-/*Calculator*/
-    
+/*Calculator board*/
+    .calculatorBoard {
+        outline: 2px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items:center;
+        height: 75%;
+        width: 25%;
+        background-color: #8eddbe;
+    } 
+
+/*Calculator entry field*/
+    .entryDisplay{
+        outline: 2px solid rebeccapurple;
+        padding: 8px 2px;    
+        margin-top: 8px;    
+    }
+
+/*Calculator buttons*/
 
 /*Footer*/
     footer{
