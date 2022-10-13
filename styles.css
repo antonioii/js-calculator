@@ -1,3 +1,6 @@
+/*Font Family*/
+@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+
 /*CSS Initial Resets*/
     html {
         box-sizing: border-box;
@@ -18,37 +21,97 @@
     }
 
 /*Main Area*/
-    .mainArea {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        height: 90%;
-        padding-top: 32px;
-    }
+ .mainArea {
+    background-color: rgb(20,19,19);
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+ }
 
-/*Calculator board*/
+ h1 {
+    color: white;
+ }
+
+ /*Calculator Board*/
     .calculatorBoard {
-        outline: 2px solid red;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items:center;
-        height: 75%;
-        width: 25%;
         background-color: #8eddbe;
-    } 
-
-/*Calculator entry field*/
-    .entryDisplay{
-        outline: 2px solid rebeccapurple;
-        padding: 8px 2px;    
-        margin-top: 8px;    
+        outline: 2px solid green;
+        border-radius: 3%;
+        width: 300px;
+        height: 350px;
     }
 
-/*Calculator buttons*/
+/*Entry display*/
+    .entryDisplay {
+        font-family: 'Space Mono', serif;
+        font-size: xx-large;
+        color: green;
+        border-radius: 10%;
+        text-align: right;
+        background-color: rgb(39,36,36);
+        padding: 8px;
+        width: 260px;
+        height: 60px;
+        margin: 20px;
+    }
+
+/*Buttons*/
+    .buttonsContainer {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 50px 50px 50px 50px;
+        grid-template-rows: 50px 50px 50px 50px;
+        grid-template-areas:
+            "_7 _8 _9 sum"
+            "_4 _5 _6 minus"
+            "_1 _2 _3 multiply"
+            "ac _0 result divide";
+        gap: 10px;
+    }
+
+    .buttonsContainer>* {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .operator,
+    .allClear {
+        background-color: orange;
+    }
+    .number {
+        background-color: beige;
+    }
+    .result {
+        background-color: greenyellow;
+        grid-area: result;
+    }
+    .allClear {
+        background-color: rgb(187, 38, 38);
+        grid-area: ac;
+    }
+
+    .sum {
+        grid-area: sum;
+    }
+    .minus {
+        grid-area: minus;
+    }
+    .multiply {
+        grid-area: multiply;
+    }
+    .divide {
+        grid-area: divide;
+    }
+    
+    
 
 /*Footer*/
     footer{
+        padding: 16px;
+        text-align: center;
+        background-color: antiquewhite;
         margin-top: auto;
     }
