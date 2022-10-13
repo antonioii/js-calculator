@@ -107,7 +107,19 @@
         grid-area: divide;
     }
     
-    
+/*buttons hover*/
+    .number:hover {
+        background-color: rgb(187, 187, 165);
+    }
+    .operator:hover{
+        background-color: rgb(197, 129, 2);
+    }
+    .result:hover{
+        background-color: rgb(120, 177, 34);
+    }
+    .allClear:hover {
+        background-color: rgb(133, 26, 26);
+    } 
 
 /*Footer*/
     footer{
