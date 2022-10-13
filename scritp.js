@@ -1,3 +1,4 @@
+//put grid-areas in all numbers
 const listOfButtons = Array.from(document.querySelectorAll('.number'));
 let gridIdentifier;
 listOfButtons.map((button) => {
