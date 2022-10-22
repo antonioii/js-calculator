@@ -25,10 +25,9 @@ parameters
 
 ## To be done:      
 
-1. Add onclick event in each button to become smaller;
-2. Add the javascript functions to the calculator;
-3. Edit the footer;
-4. A clear entry button?
+1. Add the javascript functions to the calculator;
+2. Edit the footer;
+3. A clear entry (CE) button?
 
 ## Calculator Sample with Colors and Font Family
 
