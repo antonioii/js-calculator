@@ -20,6 +20,28 @@ function printEntry(text) {
     entryDisplay.value = text;
 }
 
+//Math functions
+    function add() {
+        let sum = parseInt(entryArray[0]) + parseInt(entryArray[1]);
+        printEntry(sum);
+    }
+
+    function subtraction() {
+        let sub = parseInt(entryArray[0]) - parseInt(entryArray[1]);
+        printEntry(sub);    
+    }
+
+    function multiply() {
+        let product = parseInt(entryArray[0]) * parseInt(entryArray[1]);
+        printEntry(product);
+    }
+
+    function divide() {
+        let quotient = parseInt(entryArray[0]) / parseInt(entryArray[1]);
+        printEntry(quotient);
+    }
+
+
 //Each time a number is pressed, add it inside arr[0]
 listOfButtons.forEach(
     (numberButtom) => {
