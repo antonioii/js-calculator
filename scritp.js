@@ -7,6 +7,9 @@ const listOfButtons = Array.from(document.querySelectorAll('.number'));
 //All operator buttons
 const listOfOperators = Array.from(document.querySelectorAll('.operator'));
 
+//Result buttom
+const resultButtom = document.querySelector('.result');
+
 //A variable which sets the current operator being used
 let curOperator = '';
 
@@ -80,7 +83,25 @@ function printEntry(text) {
             }
         );
 
-//When result is pressed or an operator is pressed twice
+//When the result button is pressed
+resultButtom.addEventListener('click', getResult);
+
+//When result is pressed or an operator is pressed twice after numbers input
+            function getResult(){
+                switch(true) {
+                    case curOperator == 'sum' : add();
+                        break;
+                    case curOperator == 'minus' : subtraction();
+                        break;
+                    case curOperator == 'multiply' : multiply();
+                        break;
+                    case curOperator == 'divide' : divide();
+                        break;
+                    default:
+                        alert('Error : Not enough parameters to make a calculation');
+                }
+            }
+
 
     //till an operator button is pressed and assigned to the operator variable
         //then start to add the number inside arr[1]
