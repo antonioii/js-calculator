@@ -23,28 +23,36 @@ function getANumber(numberButtomId) {
 
 //Print an entry
 function printEntry(text) {
-    entryDisplay.value = text;
+    if(text[0] !== '0') {
+        entryDisplay.value = text;
+    } else {
+        entryDisplay.value = text.slice(1);
+    }
 }
 
 //Math functions
     function add() {
         let sum = parseInt(entryArray[0]) + parseInt(entryArray[1]);
         printEntry(sum);
+        resetEntryArrays(sum);
     }
 
     function subtraction() {
         let sub = parseInt(entryArray[0]) - parseInt(entryArray[1]);
-        printEntry(sub);    
+        printEntry(sub);
+        resetEntryArrays(sub);    
     }
 
     function multiply() {
         let product = parseInt(entryArray[0]) * parseInt(entryArray[1]);
         printEntry(product);
+        resetEntryArrays(product);
     }
 
     function divide() {
         let quotient = parseInt(entryArray[0]) / parseInt(entryArray[1]);
         printEntry(quotient);
+        resetEntryArrays(quotient);
     }
 
 
@@ -77,7 +85,8 @@ function printEntry(text) {
                     } else {
                         curOperator = operatorButton.id;
                         getResult();
-                    }
+                    };
+                    console.table(entryArray);
                     
                 })
             }
@@ -98,14 +107,16 @@ resultButtom.addEventListener('click', getResult);
                     case curOperator == 'divide' : divide();
                         break;
                     default:
-                        alert('Error : Not enough parameters to make a calculation');
-                }
+                        alert('Error : Not enough parameters to make a calculation.');
+                };           
             }
 
-
-    //till an operator button is pressed and assigned to the operator variable
-        //then start to add the number inside arr[1]
-//press equal button to make the calculation based on the currentOperator being used
+//Reset the entry arrays after a result
+            function resetEntryArrays(resultValue){
+                console.log(resultValue);
+                entryArray[0] = resultValue;
+                entryArray[1] = '0';
+            }
 
 //JS to put grid-areas in all buttons in order to match with the CSS inside buttonsContainer
 let gridIdentifier;
@@ -113,5 +124,3 @@ listOfButtons.map((button) => {
     gridIdentifier = "_" + button.textContent;
     button.style.setProperty('grid-area',`${gridIdentifier}`);
 });
-
-//console.table(listOfButtons);
