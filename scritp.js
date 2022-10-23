@@ -42,25 +42,25 @@ function printEntry(text) {
     }
 
 
-//Each time a number is pressed, add it inside arr[0]
-listOfButtons.forEach(
-    (numberButtom) => {
-        numberButtom.addEventListener('click', () => {
-            //get the number pressed
-            let number = getANumber(numberButtom.id);
-            //if current operator pressed, add to arr[0], else arr[1]
-            if(curOperator === '') {
-                entryArray[0] += number;
-                printEntry(entryArray[0]);
-            } else {
-                entryArray[1] += number;
-                printEntry(entryArray[1])
-            }
-            console.table(entryArray);
-            console.log(number);
-        })
-    }
-);
+//When a number is pressed
+    listOfButtons.forEach(
+        (numberButtom) => {
+            numberButtom.addEventListener('click', () => {
+                //get the number pressed
+                let number = getANumber(numberButtom.id);
+                //if current operator pressed, add to arr[0], else add to arr[1]
+                if(curOperator === '') {
+                    entryArray[0] += number;
+                    printEntry(entryArray[0]);
+                } else {
+                    entryArray[1] += number;
+                    printEntry(entryArray[1])
+                }
+                console.table(entryArray);
+                console.log(number);
+            })
+        }
+    );
 
 
 
