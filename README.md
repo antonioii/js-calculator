@@ -25,10 +25,10 @@ parameters
 
 ## To be done:      
 
-1. Add the javascript functions to the calculator;
-2. Edit the footer;
+1. Edit the footer;
+2. Make the CA functionality;
 3. A clear entry (CE) button?
-4. Correct the bug when an operator is pressed one or more times without a number.
+4. Correct the bug when an operator/equal is pressed without proper entries.
 
 ## Calculator Sample with Colors and Font Family
 
