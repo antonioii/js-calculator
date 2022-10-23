@@ -1,8 +1,11 @@
 //A list with a pair of entries
 const entryArray = new Array('','');
 
-//All the number buttons
+//All the number buttoms
 const listOfButtons = Array.from(document.querySelectorAll('.number'));
+
+//All operator buttons
+const listOfOperators = Array.from(document.querySelectorAll('.operator'));
 
 //A variable which sets the current operator being used
 let curOperator = '';
@@ -62,7 +65,22 @@ function printEntry(text) {
         }
     );
 
+//When an operator is pressed
+        listOfOperators.forEach(
+            (operatorButton) => {
+                operatorButton.addEventListener('click', () => {
+                    if(curOperator === '') {
+                        curOperator = operatorButton.id;
+                    } else {
+                        curOperator = operatorButton.id;
+                        getResult();
+                    }
+                    
+                })
+            }
+        );
 
+//When result is pressed or an operator is pressed twice
 
     //till an operator button is pressed and assigned to the operator variable
         //then start to add the number inside arr[1]

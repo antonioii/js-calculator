@@ -28,6 +28,7 @@ parameters
 1. Add the javascript functions to the calculator;
 2. Edit the footer;
 3. A clear entry (CE) button?
+4. Correct the bug when an operator is pressed one or more times without a number.
 
 ## Calculator Sample with Colors and Font Family
 
