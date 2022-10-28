@@ -94,7 +94,16 @@ function printEntry(text) {
         );
 
 //When the result button is pressed
-resultButtom.addEventListener('click', getResult);
+resultButtom.addEventListener('click', () => {
+    getResult();
+    clearVariables();
+});
+
+//Clear the entry array and the current operator variable
+function clearVariables(){
+    entryArray[1] = '';
+    curOperator = '';
+}
 
 //When result is pressed or an operator is pressed twice after numbers input
             function getResult(){
@@ -108,7 +117,7 @@ resultButtom.addEventListener('click', getResult);
                     case curOperator == 'divide' : divide();
                         break;
                     default:
-                        alert('Error : Not enough parameters to make a calculation.');
+                        alert('You have to choose a number, an operator and then another number to do an operation.');
                 };           
             }
 
