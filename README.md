@@ -28,7 +28,7 @@ parameters
 1. Edit the footer;
 2. Make the CA functionality;
 3. A clear entry (CE) button?
-4. Correct the bug when an operator/equal is pressed without proper entries.
+4. Correct the bug when press an operator and then equal without numbers.
 
 ## Calculator Sample with Colors and Font Family
 
