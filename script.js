@@ -10,6 +10,9 @@ const listOfOperators = Array.from(document.querySelectorAll('.operator'));
 //Result buttom
 const resultButtom = document.querySelector('.result');
 
+//All clear buttom
+const aCButtom = document.querySelector('.allClear');
+
 //A variable which sets the current operator being used
 let curOperator = '';
 
@@ -127,6 +130,14 @@ function clearVariables(){
                 entryArray[0] = resultValue;
                 entryArray[1] = '';
             }
+
+//All clear function
+aCButtom.addEventListener('click', () => {
+    clearVariables();
+    entryArray[0] = '';
+    printEntry('00');
+
+});
 
 //JS to put grid-areas in all buttons in order to match with the CSS inside buttonsContainer
 let gridIdentifier;
