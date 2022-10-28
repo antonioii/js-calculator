@@ -105,8 +105,21 @@ function printEntry(text) {
 
 //When the result button is pressed
 resultButtom.addEventListener('click', () => {
-    getResult();
-    clearVariables();
+    switch(true) {
+        case entryArray[1] === '' && entryArray[0] != '0':
+            alert('You have to choose a number, an operator and then another number to do an operation.');
+        break;
+
+        case entryArray[1] === '' && entryArray[0] == '0' :
+            entryArray[0] = '';
+            curOperator = '';
+            alert('You have to choose a number, an operator and then another number to do an operation.');
+        break;
+
+        default:
+            getResult();
+            clearVariables();
+    }    
 });
 
 //Clear the entry array and the current operator variable
