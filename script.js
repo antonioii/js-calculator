@@ -1,23 +1,22 @@
+//All the number buttoms
+    const listOfButtons = Array.from(document.querySelectorAll('.number'));
+//The entry display field
+    const entryDisplay = document.querySelector('.entryDisplay');
+//All operator buttons
+    const listOfOperators = Array.from(document.querySelectorAll('.operator'));
+//Result buttom
+    const resultButtom = document.querySelector('.result');
+//All clear buttom
+    const aCButtom = document.querySelector('.allClear');
+
 //A list with a pair of entries
 const entryArray = new Array('','');
-
-//All the number buttoms
-const listOfButtons = Array.from(document.querySelectorAll('.number'));
-
-//All operator buttons
-const listOfOperators = Array.from(document.querySelectorAll('.operator'));
-
-//Result buttom
-const resultButtom = document.querySelector('.result');
-
-//All clear buttom
-const aCButtom = document.querySelector('.allClear');
 
 //A variable which sets the current operator being used
 let curOperator = '';
 
-//The entry display field
-const entryDisplay = document.querySelector('.entryDisplay');
+//A variable to set if a number is already pressed
+let numberAlreadyPressed = false;
 
 //Read a number
 function getANumber(numberButtomId) {
@@ -63,6 +62,7 @@ function printEntry(text) {
     listOfButtons.forEach(
         (numberButtom) => {
             numberButtom.addEventListener('click', () => {
+                numberAlreadyPressed = true;
                 //get the number pressed
                 let number = getANumber(numberButtom.id);
                 //if current operator pressed, add to arr[0], else add to arr[1]
@@ -85,6 +85,13 @@ function printEntry(text) {
                 operatorButton.addEventListener('click', () => {
                     if(curOperator === '') {
                         curOperator = operatorButton.id;
+
+                        //if a number is not pressed and an operator is choose,
+                        //work with zero as the first number
+                        if(!numberAlreadyPressed) {
+                            entryArray[0] = 0;
+                        };
+
                     } else {
                         if(entryArray[1] !== '') {getResult()};
                         curOperator = operatorButton.id;
@@ -136,6 +143,7 @@ aCButtom.addEventListener('click', () => {
     clearVariables();
     entryArray[0] = '';
     printEntry('00');
+    numberAlreadyPressed = false;
 
 });
 
