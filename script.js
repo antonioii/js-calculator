@@ -1,3 +1,4 @@
+//VARIABLES
 //All the number buttoms
     const listOfButtons = Array.from(document.querySelectorAll('.number'));
 //The entry display field
@@ -10,29 +11,30 @@
     const aCButtom = document.querySelector('.allClear');
 
 //A list with a pair of entries
-const entryArray = new Array('','');
-
+    const entryArray = new Array('','');
 //A variable which sets the current operator being used
-let curOperator = '';
-
+    let curOperator = '';
 //A variable to set if a number is already pressed
-let numberAlreadyPressed = false;
+    let numberAlreadyPressed = false;
 
+//FUNCTIONS
 //Read a number
-function getANumber(numberButtomId) {
-    return numberButtomId.match(/[0-9]{1,2}/g)[0];
-}
+    function getANumber(numberButtomId) {
+        return numberButtomId.match(/[0-9]{1,2}/g)[0];
+    }
+
 
 //Print an entry
-function printEntry(text) {
-    if(text[0] !== '0') {
-        entryDisplay.value = text;
-    } else {
-        entryDisplay.value = text.slice(1);
-    }
+    function printEntry(text) {
+        if(text[0] !== '0') {
+            entryDisplay.value = text;
+        } else {
+            entryDisplay.value = text.slice(1);
+        }
 }
 
-//Math functions
+
+//Math function operations
     function add() {
         let sum = parseInt(entryArray[0]) + parseInt(entryArray[1]);
         printEntry(sum);
@@ -73,96 +75,103 @@ function printEntry(text) {
                     entryArray[1] += number;
                     printEntry(entryArray[1])
                 }
-                console.table(entryArray);
-                console.log(number);
+
+        //debug: console.table(entryArray);
+        //debug: console.log(number);
             })
         }
     );
 
-//When an operator is pressed
-        listOfOperators.forEach(
-            (operatorButton) => {
-                operatorButton.addEventListener('click', () => {
-                    if(curOperator === '') {
-                        curOperator = operatorButton.id;
 
-                        //if a number is not pressed and an operator is choose,
-                        //work with zero as the first number
+//When an operator is pressed
+    listOfOperators.forEach(
+        (operatorButton) => {
+           operatorButton.addEventListener('click', () => {
+                if(curOperator === '') {
+                    curOperator = operatorButton.id;
+
+                    //if a number is not pressed and an operator is choose,
+                    //work with zero as the first number
                         if(!numberAlreadyPressed) {
                             entryArray[0] = 0;
                         };
 
-                    } else {
+                } else {
                         if(entryArray[1] !== '') {getResult()};
                         curOperator = operatorButton.id;
-                        
                     };
-                    console.table(entryArray);
-                    
+
+    //debug: console.table(entryArray);                    
                 })
             }
         );
 
+
 //When the result button is pressed
-resultButtom.addEventListener('click', () => {
-    switch(true) {
-        case entryArray[1] === '' && entryArray[0] != '0':
-            alert('You have to choose a number, an operator and then another number to do an operation.');
-        break;
+    resultButtom.addEventListener('click', () => {
+        switch(true) {
+            case entryArray[1] === '' && entryArray[0] != '0':
+                alert('You have to choose a number, an operator and then another number to do an operation.');
+            break;
 
-        case entryArray[1] === '' && entryArray[0] == '0' :
-            entryArray[0] = '';
-            curOperator = '';
-            alert('You have to choose a number, an operator and then another number to do an operation.');
-        break;
+            case entryArray[1] === '' && entryArray[0] == '0' :
+                entryArray[0] = '';
+                curOperator = '';
+                alert('You have to choose a number, an operator and then another number to do an operation.');
+            break;
 
-        default:
-            getResult();
-            clearVariables();
-    }    
-});
+            default:
+                getResult();
+                clearVariables();
+        }    
+    });
+
 
 //Clear the entry array and the current operator variable
-function clearVariables(){
-    entryArray[1] = '';
-    curOperator = '';
+    function clearVariables(){
+        entryArray[1] = '';
+        curOperator = '';
 }
 
+
 //When result is pressed or an operator is pressed twice after numbers input
-            function getResult(){
-                switch(true) {
-                    case curOperator == 'sum' : add();
-                        break;
-                    case curOperator == 'minus' : subtraction();
-                        break;
-                    case curOperator == 'multiply' : multiply();
-                        break;
-                    case curOperator == 'divide' : divide();
-                        break;
-                    default:
-                        alert('You have to choose a number, an operator and then another number to do an operation.');
+    function getResult(){
+        switch(true) {
+            case curOperator == 'sum' : add();
+                break;
+            case curOperator == 'minus' : subtraction();
+                break;
+            case curOperator == 'multiply' : multiply();
+                break;
+            case curOperator == 'divide' : divide();
+                break;
+            default:
+                alert('You have to choose a number, an operator and then another number to do an operation.');
                 };           
             }
 
+
 //Reset the entry arrays after a result
-            function resetEntryArrays(resultValue){
-                console.log(resultValue);
-                entryArray[0] = resultValue;
-                entryArray[1] = '';
-            }
+    function resetEntryArrays(resultValue){
+        console.log(resultValue);
+        entryArray[0] = resultValue;
+        entryArray[1] = '';
+    }
+
 
 //All clear function
-aCButtom.addEventListener('click', () => {
-    clearVariables();
-    entryArray[0] = '';
-    printEntry('00');
-    numberAlreadyPressed = false;
+    aCButtom.addEventListener('click', () => {
+        clearVariables();
+        entryArray[0] = '';
+        printEntry('00');
+        numberAlreadyPressed = false;
 
-});
+    });
 
-//JS to put grid-areas in all buttons in order to match with the CSS inside buttonsContainer
-let gridIdentifier;
-listOfButtons.map((button) => {
-    gridIdentifier = "_" + button.textContent;
-    button.style.setProperty('grid-area',`${gridIdentifier}`);
-});
+    
+//JS to improve the CSS, it puts grid-areas in all buttons in order to match with the CSS inside buttonsContainer
+    let gridIdentifier;
+    listOfButtons.map((button) => {
+        gridIdentifier = "_" + button.textContent;
+        button.style.setProperty('grid-area',`${gridIdentifier}`);
+    });
