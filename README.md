@@ -11,7 +11,7 @@ The Odin Project is a self-taught course focused on full stack web development.
 
 ---
 
-## Simples requirements of the first algorithm idea
+## Simple requirements of the first algorithm idea
 
 * There is a two size result array which receives input from the number buttons
 when they are pressed.   
